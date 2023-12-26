@@ -1,5 +1,5 @@
 object Versions {
-    const val GRADLE = "8.2.0"
+    const val AGP = "8.0.0"
     const val KOTLIN = "1.9.0"
     const val DAGGER = "2.49"
     const val HILT = "2.48"

@@ -14,7 +14,6 @@ import net.sqlcipher.database.SupportFactory
 @Database(
     entities = [Genre::class, Movie::class],
     version = 1,
-    exportSchema = true,
 )
 @TypeConverters(ArrayListOfIntConverter::class)
 abstract class CoreDatabase : RoomDatabase() {

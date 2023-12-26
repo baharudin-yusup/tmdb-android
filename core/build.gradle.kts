@@ -68,18 +68,3 @@ dependencies {
     applyHiltDependencies()
 
 }
-
-ksp {
-    arg(RoomSchemaArgProvider(File(projectDir, "schemas")))
-}
-
-class RoomSchemaArgProvider(
-    @get:InputDirectory
-    @get:PathSensitive(PathSensitivity.RELATIVE)
-    val schemaDir: File
-) : CommandLineArgumentProvider {
-
-    override fun asArguments(): Iterable<String> {
-        return listOf("room.schemaLocation=${schemaDir.path}")
-    }
-}
