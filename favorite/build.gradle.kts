@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.android.dynamic-feature")
     id("org.jetbrains.kotlin.android")
