@@ -30,7 +30,7 @@ jobs:
           java-version: '17'
 
       - name: Cache Gradle and Wrapper
-        uses: actions/cache@v3.3.2
+        uses: actions/cache@v4
         with:
           path: |
             ~/.gradle/caches
@@ -63,7 +63,7 @@ jobs:
         run: ./gradlew app:bundleRelease
 
       - name: Upload Release Build to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release-artifacts
           path: |
