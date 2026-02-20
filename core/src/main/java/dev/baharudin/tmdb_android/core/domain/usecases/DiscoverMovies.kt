@@ -21,8 +21,8 @@ class DiscoverMovies @Inject constructor(
         return movieRepository.discoverMoviesByGenre(genre)
     }
 
-    operator fun invoke(genreName: String): Flow<PagingData<Movie>> {
-        Log.d(TAG, "invoke: get movies by $genreName")
-        return movieRepository.discoverMoviesByGenre(genreName)
+    operator fun invoke(genreId: Int): Flow<PagingData<Movie>> {
+        Log.d(TAG, "invoke: get movies by genre id $genreId")
+        return movieRepository.discoverMoviesByGenre(listOf(genreId))
     }
 }

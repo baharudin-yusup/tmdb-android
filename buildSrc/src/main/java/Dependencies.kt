@@ -35,7 +35,7 @@ object Dependencies {
     const val ROOM_TESTING = "androidx.room:room-testing:${Versions.ROOM}"
 
     // Room Encrypt
-    const val ANDROID_DATABASE_SQLCIPHER = "net.zetetic:android-database-sqlcipher:4.4.0@aar"
+    const val ANDROID_DATABASE_SQLCIPHER = "net.zetetic:sqlcipher-android:4.13.0"
     const val SQLITE = "androidx.sqlite:sqlite-ktx:2.4.0"
 
     // Test
