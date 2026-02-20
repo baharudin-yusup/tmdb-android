@@ -30,7 +30,9 @@ android {
             }
         }
         release {
-            isMinifyEnabled = true
+            // App module performs final shrinking/obfuscation; avoid obfuscating core API classes
+            // before app R8 runs to prevent cross-module missing-class issues.
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
