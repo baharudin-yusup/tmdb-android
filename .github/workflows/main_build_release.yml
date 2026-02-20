@@ -69,6 +69,7 @@ jobs:
           path: |
             app/build/outputs/apk/release/*.apk
             app/build/outputs/bundle/release/*.aab
+            app/build/outputs/native-debug-symbols/release/*.zip
 
       - name : Retrieve Release Version
         id: retrieve_version
@@ -93,3 +94,4 @@ jobs:
           files: |
             app/build/outputs/apk/release/app-release.apk
             app/build/outputs/bundle/release/app-release.aab
+            app/build/outputs/native-debug-symbols/release/native-debug-symbols.zip
