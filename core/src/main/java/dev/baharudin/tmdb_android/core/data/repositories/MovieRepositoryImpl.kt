@@ -84,7 +84,7 @@ class MovieRepositoryImpl @Inject constructor(
             ),
             pagingSourceFactory = {
                 MovieListSource(
-                    theMovieDBApi, MovieListSource.QueryParams(genre.name)
+                    theMovieDBApi, MovieListSource.QueryParams(listOf(genre.id))
                 )
             }
         ).flow.map { pagingData ->
@@ -106,8 +106,8 @@ class MovieRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun discoverMoviesByGenre(genreName: String): Flow<PagingData<Movie>> {
-        Log.d(TAG, "discoverMoviesByGenre: $genreName started...")
+    override fun discoverMoviesByGenre(genreIds: List<Int>): Flow<PagingData<Movie>> {
+        Log.d(TAG, "discoverMoviesByGenreId: $genreIds started...")
         return Pager(
             config = PagingConfig(
                 pageSize = 2,
@@ -115,7 +115,7 @@ class MovieRepositoryImpl @Inject constructor(
             ),
             pagingSourceFactory = {
                 MovieListSource(
-                    theMovieDBApi, MovieListSource.QueryParams(genreName)
+                    theMovieDBApi, MovieListSource.QueryParams(genreIds)
                 )
             }
         ).flow.map { pagingData ->

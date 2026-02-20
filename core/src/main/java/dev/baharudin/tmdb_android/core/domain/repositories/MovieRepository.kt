@@ -15,7 +15,7 @@ interface MovieRepository {
     suspend fun getMovieDetail(movieId: Int): Movie
     fun getFavoriteMovies(): Flow<List<Movie>>
     fun discoverMoviesByGenre(genre: Genre): Flow<PagingData<Movie>>
-    fun discoverMoviesByGenre(genreName: String): Flow<PagingData<Movie>>
+    fun discoverMoviesByGenre(genreIds: List<Int>): Flow<PagingData<Movie>>
     fun getMovieReviews(movie: Movie): Flow<PagingData<Review>>
     fun getMovieReviews(movieId: Int): Flow<PagingData<Review>>
     fun addToFavoriteMovie(movie: Movie): Movie

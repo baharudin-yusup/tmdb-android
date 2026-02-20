@@ -13,7 +13,7 @@ class MovieListSource(
     private val query: QueryParams,
 ) : PagingSource<Int, MovieResponse>() {
 
-    data class QueryParams(val genreName: String)
+    data class QueryParams(val genreIds: List<Int>)
 
     companion object {
         const val TAG = "(DS) MovieListSource"
@@ -24,7 +24,8 @@ class MovieListSource(
         val currentPage = params.key ?: 1
         return try {
             val response = theMovieDBApi.getMovieList(
-                withGenres = query.genreName,
+                withGenres = query.genreIds.map { it.toString() }
+                    .reduce { acc, string -> "$acc|$string" },
                 page = currentPage
             )
             val movies = response.results

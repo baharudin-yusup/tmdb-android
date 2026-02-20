@@ -75,11 +75,13 @@ class MovieListViewModel @Inject constructor(
     }
 
     private suspend fun getMovieList() {
-        discoverMovies(genreName)
-            .distinctUntilChanged()
-            .cachedIn(viewModelScope)
-            .collect {
-                _moviesState.value = it
-            }
+        genreState.value.data?.let { genre ->
+            discoverMovies(genre)
+                .distinctUntilChanged()
+                .cachedIn(viewModelScope)
+                .collect {
+                    _moviesState.value = it
+                }
+        }
     }
 }
