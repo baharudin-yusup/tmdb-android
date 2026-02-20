@@ -86,7 +86,7 @@ android {
         }
     }
 
-    applicationVariants.all {
+    applicationVariants.configureEach {
         val variant = this
         val variantName = variant.name
         val variantVersionName = variant.versionName ?: "Not found"

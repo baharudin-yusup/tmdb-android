@@ -9,8 +9,7 @@ import androidx.room.TypeConverters
 import dev.baharudin.tmdb_android.core.data.models.ArrayListOfIntConverter
 import dev.baharudin.tmdb_android.core.data.models.local.Genre
 import dev.baharudin.tmdb_android.core.data.models.local.Movie
-import net.sqlcipher.database.SQLiteDatabase
-import net.sqlcipher.database.SupportFactory
+import net.zetetic.database.sqlcipher.SupportOpenHelperFactory
 
 @Database(
     entities = [Genre::class, Movie::class],
@@ -29,8 +28,8 @@ abstract class CoreDatabase : RoomDatabase() {
         private const val passphrase = "baharudin"
 
         fun create(context: Context): CoreDatabase {
-            val passphraseByteArray = SQLiteDatabase.getBytes(passphrase.toCharArray())
-            val factory = SupportFactory(passphraseByteArray)
+            val passphraseByteArray = passphrase.toByteArray()
+            val factory = SupportOpenHelperFactory(passphraseByteArray)
             return Room.databaseBuilder(
                 context.applicationContext,
                 CoreDatabase::class.java, "core.db"
