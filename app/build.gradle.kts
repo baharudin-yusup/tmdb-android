@@ -5,6 +5,7 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.gms.google-services")
     id("kotlin-android")
     id("kotlin-parcelize")
@@ -15,14 +16,14 @@ plugins {
 
 android {
     namespace = "dev.baharudin.tmdb_android"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "dev.baharudin.tmdb_android"
         minSdk = 30
-        targetSdk = 34
-        versionCode = 8
-        versionName = "1.2.4"
+        targetSdk = 36
+        versionCode = 9
+        versionName = "1.2.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -76,9 +77,6 @@ android {
     buildFeatures {
         viewBinding = true
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = Versions.COMPOSE_COMPILER
     }
     packaging {
         resources {
